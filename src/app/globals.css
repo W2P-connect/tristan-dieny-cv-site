@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -10,6 +12,44 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+}
+
+@theme {
+  --color-*: initial;
+
+  --color-white: rgb(255, 255, 255);
+  --color-black: rgb(12, 12, 12);
+
+  --color-primary-darkest: rgb(49, 33, 99);
+  --color-primary-dark: rgb(85, 49, 167);
+  --color-primary-500: rgb(146, 81, 247);
+  --color-primary-light: rgb(198, 150, 252);
+  --color-primary-lighter: rgb(239, 226, 249);
+  --color-primary-lightest: rgb(248, 242, 252);
+
+  --color-secondary-dark: rgb(42, 51, 126);
+  --color-secondary-500: rgb(81, 108, 247);
+  --color-secondary-light: rgb(149, 170, 251);
+  --color-secondary-lighter: rgb(225, 231, 254);
+
+  --color-gray-darkest: rgb(35, 35, 57);
+  --color-gray-darker: rgb(46, 46, 72);
+  --color-gray-dark: rgb(71, 81, 107);
+  --color-gray-500: rgb(121, 129, 154);
+  --color-gray-light: rgb(172, 177, 195);
+  --color-gray-lighter: rgb(217, 223, 232);
+  --color-gray-lightest: rgb(226, 230, 238);
+  --color-gray-lightest-2: rgb(247, 249, 252);
+
+  --color-status-info: rgb(34, 195, 241);
+  --color-status-success-light: rgb(231, 250, 229);
+  --color-status-success: rgb(74, 192, 111);
+  --color-status-success-dark: rgb(31, 92, 67);
+  --color-status-warning: rgb(244, 206, 16);
+
+  --color-social-linkedin: #0077B5;
+
+  --color-gradient-primary: rgb(146, 81, 247);
 }
 
 @media (prefers-color-scheme: dark) {

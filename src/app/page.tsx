@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { ThemeToggle } from '@/components/themeToggle/ThemeToggle'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -15,7 +16,7 @@ export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-black">
       <header className="top-0 z-50 absolute inset-x-0">
         <nav aria-label="Global" className="flex justify-between items-center p-6 lg:px-8">
           <div className="flex lg:flex-1">
@@ -40,13 +41,13 @@ export default function Example() {
           </div>
           <div className="hidden lg:flex lg:gap-x-12">
             {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="font-semibold text-gray-900 text-sm/6">
+              <a key={item.name} href={item.href} className="font-semibold text-gray-900 dark:text-gray-200 text-sm/6">
                 {item.name}
               </a>
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <div>Contact</div>
+            <ThemeToggle />
           </div>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -77,7 +78,7 @@ export default function Example() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="block hover:bg-gray-50 -mx-3 px-3 py-2 rounded-lg font-semibold text-gray-900 text-base/7"
+                      className="block hover:bg-gray-50 -mx-3 px-3 py-2 rounded-lg font-semibold text-gray-900 dark:text-gray-200 text-base/7"
                     >
                       {item.name}
                     </a>
