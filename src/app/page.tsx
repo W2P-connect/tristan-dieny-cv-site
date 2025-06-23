@@ -1,7 +1,6 @@
 'use client'
 
 export default function Home() {
-
   return (
     <div className="bg-white dark:bg-black">
       <div className="isolate relative px-6 lg:px-8 pt-14">
