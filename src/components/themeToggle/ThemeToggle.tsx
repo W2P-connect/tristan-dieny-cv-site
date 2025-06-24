@@ -7,8 +7,10 @@ import { useTheme } from '@/hooks/useTheme'
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme()
 
-  const enabled = theme === 'dark'
+  if (!theme) return null
 
+  const enabled = theme === 'dark'
+  
   return (
     <label className="theme-switch">
       <input type="checkbox" checked={enabled} onChange={toggleTheme} />

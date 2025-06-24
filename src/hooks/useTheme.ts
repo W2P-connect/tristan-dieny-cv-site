@@ -1,7 +1,9 @@
+import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react'
 
 export function useTheme() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+
+  const [theme, setTheme] = useState<'light' | 'dark'>()
 
   useEffect(() => {
     const stored = localStorage.getItem('theme')
@@ -10,8 +12,10 @@ export function useTheme() {
   }, [])
 
   useEffect(() => {
+    if (!theme) return
     document.documentElement.classList.toggle('dark', theme === 'dark')
-    localStorage.setItem('theme', theme)
+    theme && localStorage.setItem('theme', theme)
+    Cookies.set('tdcv-theme', theme, { expires: 365 });
   }, [theme])
 
   const toggleTheme = () => {
