@@ -13,10 +13,17 @@ export function Header() {
     const { locale } = useLanguage()
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+    if (!locale) return null
+    
     return (
         <header className="top-0 z-50 absolute inset-x-0">
             <nav aria-label="Global" className="flex justify-between items-center p-6 lg:px-8">
-                <div className={clx("flex lg:flex-1 opacity-100 transition-opacity duration-200", mobileMenuOpen && '!opacity-0')}>
+                <div
+                    className={clx(
+                        'flex lg:flex-1 opacity-100 transition-opacity duration-200',
+                        mobileMenuOpen && '!opacity-0'
+                    )}
+                >
                     <LanguageToggle />
                 </div>
                 <div className="lg:hidden flex">
@@ -83,7 +90,7 @@ export function Header() {
                         </div>
                     </div>
                 </DialogPanel>
-                <div className='z-40 absolute inset-0 bg-[rgba(0,0,0,0.4)] backdrop-blur' />
+                <div className="z-40 absolute inset-0 bg-[rgba(0,0,0,0.4)] backdrop-blur" />
             </Dialog>
         </header>
     )
