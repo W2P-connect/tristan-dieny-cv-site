@@ -64,3 +64,43 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/******************************************************************************************/
+/****************************************** FONT ******************************************/
+/******************************************************************************************/
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+  @apply text-gray-darkest dark:text-gray-lightest-2;
+}
+
+h1 {
+  @apply font-semibold text-5xl sm:text-7xl text-balance tracking-tight;
+}
+
+h2 {
+  @apply font-black text-2xl sm:text-4xl text-balance tracking-tight;
+}
+
+
+/******************************************************************************************/
+/*************************************** CONTAINERS ***************************************/
+/******************************************************************************************/
+
+.main-container {
+  @apply bg-white dark:bg-gray-darkest mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-screen;
+}
+
+/******************************************************************************************/
+/**************************************** ELEMENTS ****************************************/
+/******************************************************************************************/
+
+.custom-button {
+  @apply bg-primary-500 dark:bg-primary-lightest hover:shadow-lg px-3 py-1.5 rounded-md text-gray-lightest-2 dark:text-gray-darkest transition duration-300 ease-in-out;
+}
