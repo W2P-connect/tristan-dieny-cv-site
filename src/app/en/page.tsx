@@ -11,11 +11,7 @@ export default function page() {
           Elit sunt amet fugiat veniam occaecat.
         </p>
         <div className="flex justify-center items-center gap-x-6 mt-10">
-          <a
-            href="#"
-          >
-            Get started
-          </a>
+          <a href="#">Get started</a>
           <a href="#">
             Learn more <span aria-hidden="true">→</span>
           </a>
