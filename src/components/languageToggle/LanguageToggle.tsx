@@ -1,9 +1,9 @@
 'use client'
 
-import FrenchFlag from '@/assets/icons/flag/FrenchFlag'
-import UKFlag from '@/assets/icons/flag/UKFlag'
+import FrenchFlag from 'public/icons/flag/FrenchFlag'
+import UKFlag from 'public/icons/flag/UKFlag'
 import React, { useState } from 'react'
-import { clx } from '@/app/utilts'
+import { clx } from '@/utilts'
 import { useLanguage } from '@/context/LanguageContext'
 
 export default function LanguageToggle() {
@@ -16,7 +16,7 @@ export default function LanguageToggle() {
     <div onMouseLeave={() => setIsHovered(false)} className="relative">
       <div
         onMouseEnter={() => setIsHovered(true)}
-        className="relative w-[40px] h-[40px] cursor-pointer"
+        className="relative rounded-xl w-[40px] h-[40px] overflow-hidden cursor-pointer"
         onClick={() => setNewLocale(isFrench ? 'fr' : 'en')}
       >
         {isFrench ? <FrenchFlag size={40} /> : <UKFlag size={40} />}
@@ -24,7 +24,7 @@ export default function LanguageToggle() {
 
       <div
         className={clx(
-          'absolute opacity-0 transition-all duration-300',
+          'absolute opacity-0 transition-all duration-300 rounded-xl overflow-hidden',
           isHovered && 'opacity-100 cursor-pointer'
         )}
         onClick={() => setNewLocale(isFrench ? 'en' : 'fr')}

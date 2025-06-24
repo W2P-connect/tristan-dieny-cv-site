@@ -1,8 +1,8 @@
 'use client'
-import React, { createContext, useContext, useEffect, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
 
-type Locale = 'fr' | 'en'
+export type Locale = 'fr' | 'en'
 
 interface LanguageContextProps {
   locale: Locale
@@ -14,18 +14,14 @@ const LanguageContext = createContext<LanguageContextProps | undefined>(undefine
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname()
   const router = useRouter()
-  const [locale, setLocale] = useState<Locale>('fr')
 
-  useEffect(() => {
-    const detected = pathname?.split('/')[1] as Locale
-    if (detected === 'en' || detected === 'fr') {
-      setLocale(detected)
-    }
-  }, [pathname])
+  const initialLocale = (pathname?.split('/')[1] as Locale) ?? undefined
+  const [locale, setLocale] = useState<Locale>(initialLocale)
 
   const setNewLocale = (newLocale: Locale) => {
     if (newLocale === locale) return
 
+    setLocale(newLocale)
     const newPath = pathname?.replace(`/${locale}`, `/${newLocale}`) || `/${newLocale}`
     router.push(newPath)
   }
