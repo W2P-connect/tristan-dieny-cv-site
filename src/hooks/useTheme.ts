@@ -1,9 +1,11 @@
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react'
 
+export type Theme = 'light' | 'dark'
+
 export function useTheme() {
 
-  const [theme, setTheme] = useState<'light' | 'dark'>()
+  const [theme, setTheme] = useState<Theme>()
 
   useEffect(() => {
     const stored = localStorage.getItem('theme')

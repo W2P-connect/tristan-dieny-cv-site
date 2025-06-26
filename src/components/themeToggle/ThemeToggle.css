@@ -62,7 +62,7 @@
     left: -100%;
     top: 50%;
     opacity: 0;
-    background-color: var(--color-gray-darkest);
+    background-color: var(--color-black);
     width: 1.25rem;
     height: 1.25rem;
     border-radius: 99999px;
