@@ -31,12 +31,10 @@ export const getURL = (path: string = '', id?: string) => {
   return path ? `${url}${id ? `#${id}` : ''}/${path}` : url
 }
 
-
-
 export function mayJsonStringify(value: any, defaultValue: any = null): any {
   try {
-    return JSON.stringify(value);
-  } catch (e) {
-    return defaultValue;
+    return JSON.stringify(value)
+  } catch {
+    return defaultValue
   }
 }

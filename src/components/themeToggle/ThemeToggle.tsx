@@ -10,7 +10,7 @@ export function ThemeToggle() {
   if (!theme) return null
 
   const enabled = theme === 'dark'
-  
+
   return (
     <label className="theme-switch">
       <input type="checkbox" checked={enabled} onChange={toggleTheme} />

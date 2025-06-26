@@ -7,9 +7,6 @@ export const metadata: Metadata = {
   description: ROUTES.fr.home.description,
 }
 
-
 export default async function page() {
-  return (
-    <HomePage />
-  )
+  return <HomePage />
 }
