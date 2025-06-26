@@ -13,7 +13,7 @@ export function Header() {
   const { locale } = useLanguage()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  if (!locale) return null
+  if (!locale || !ROUTES) return null
 
   return (
     <header className="top-0 z-50 absolute inset-x-0">
