@@ -2,9 +2,21 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 @theme inline {
@@ -47,9 +59,20 @@
   --color-status-success-dark: rgb(31, 92, 67);
   --color-status-warning: rgb(244, 206, 16);
 
+  --color-neon-green: rgb(92, 255, 61);
+
   --color-social-linkedin: #0077B5;
 
   --color-gradient-primary: rgb(146, 81, 247);
+
+
+  --shadow-neon-purple:
+    0 0 10px var(--color-primary-500),
+    0 0 100px 20px var(--color-primary-500);
+
+  --shadow-neon-green:
+    0 0 10px var(--color-neon-green),
+    0 0 100px 10px var(--color-neon-green);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -81,7 +104,7 @@ a {
 }
 
 h1 {
-  @apply font-semibold text-5xl sm:text-7xl text-balance tracking-tight;
+  @apply font-semibold text-4xl sm:text-7xl text-balance tracking-tight;
 }
 
 h2 {
@@ -93,8 +116,16 @@ h2 {
 /*************************************** CONTAINERS ***************************************/
 /******************************************************************************************/
 
-.main-container {
-  @apply bg-white dark:bg-gray-darkest mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl h-screen;
+.fade-blur-mask {
+  mask-image: linear-gradient(to right, transparent, black);
+  -webkit-mask-image: linear-gradient(to right, transparent, black);
+  backdrop-filter: blur(8px);
+}
+
+.fade-blur-mask-left {
+  mask-image: linear-gradient(to left, transparent, black);
+  -webkit-mask-image: linear-gradient(to left, transparent, black);
+  backdrop-filter: blur(8px);
 }
 
 /******************************************************************************************/

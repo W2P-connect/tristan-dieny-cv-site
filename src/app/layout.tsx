@@ -4,6 +4,7 @@ import './globals.css'
 import { Header } from '@/components/header/Header'
 import { LanguageProvider } from '@/context/LanguageContext'
 import { headers } from "next/headers";
+import { clx } from '@/utilts'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -27,17 +28,12 @@ export default async function RootLayout({
 }>) {
 
   const headersList = await headers()
-  console.log("headersList.getSetCookie()", headersList.getSetCookie());
-
   const theme = headersList.get('x-theme')
 
-  console.log("------> x-theme", theme);
-
-
   return (
-    <html lang="en" className={theme === 'dark' ? 'dark' : ''}>
+    <html lang="en" className={clx(theme === 'dark' ? 'dark' : '', "bg-gray-lightest-2 dark:bg-black")}>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="bg-white dark:bg-gray-darkest min-h-screen transition-all transition-duration-200">
+        <div className="bg-white dark:bg-black min-h-screen transition-all transition-duration-200">
           <LanguageProvider>
             <Header />
             {children}
