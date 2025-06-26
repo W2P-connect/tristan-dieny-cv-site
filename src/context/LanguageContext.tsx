@@ -1,6 +1,7 @@
 'use client'
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
+import Cookies from 'js-cookie'
 
 export type Locale = 'fr' | 'en'
 
@@ -22,6 +23,7 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     if (newLocale === locale) return
 
     setLocale(newLocale)
+    Cookies.set('tdcv-locale', newLocale, { expires: 365 });
     const newPath = pathname?.replace(`/${locale}`, `/${newLocale}`) || `/${newLocale}`
     router.push(newPath)
   }
