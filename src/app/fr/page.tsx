@@ -1,6 +1,6 @@
-import HomePage from "@/components/_sections/home/HomePage"
-import { ROUTES } from "@/lib/routes"
-import { Metadata } from "next"
+import HomePage from '@/components/_sections/home/HomePage'
+import { ROUTES } from '@/lib/routes'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: ROUTES.fr.home.title,
