@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/header/Header'
-import { LanguageProvider } from '@/context/LanguageContext'
 import { headers } from 'next/headers'
 import { clx } from '@/utilts'
+import Modal from '@/components/containers/modal/Modal'
+import { AppProviders } from '@/context/AppProviders'
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -35,12 +36,13 @@ export default async function RootLayout({
       className={clx(theme === 'dark' ? 'dark' : '', 'bg-gray-lightest-2 dark:bg-black')}
     >
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <div className="bg-white dark:bg-black min-h-screen transition-all transition-duration-200">
-          <LanguageProvider>
+        <AppProviders>
+          <div className="bg-white dark:bg-black min-h-screen transition-all transition-duration-200">
             <Header />
             {children}
-          </LanguageProvider>
-        </div>
+          </div>
+          <Modal />
+        </AppProviders>
       </body>
     </html>
   )
