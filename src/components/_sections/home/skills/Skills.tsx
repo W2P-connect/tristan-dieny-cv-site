@@ -5,13 +5,14 @@ import ClientSkills from './ClientSkills'
 import SectionContainer from '@/components/containers/sectionContainer/SectionContainer'
 import { clx } from '@/utilts'
 import { ClientSkillCardWrapper } from '@/components/containers/skillCard/ClientSkillCardWrapper'
+import { Locale } from '@/context/LanguageContext'
 
-export default function Skills() {
+export default function Skills({ locale }: { locale: Locale }) {
   return (
-    <div className="py-12">
-      <section id="skills">
+    <>
+      <section className="py-12" id="skills">
         <SectionContainer className="!py-0">
-          <h2 className="mb-8 font-bold text-2xl">Skills</h2>
+          <h2 className="mb-8">{locale === 'fr' ? 'Compétences' : 'Skills'}</h2>
         </SectionContainer>
         <div className="relative">
           <div
@@ -38,6 +39,6 @@ export default function Skills() {
         </div>
       </section>
       <ClientSkills id="skill-cards-scroller" />
-    </div>
+    </>
   )
 }
