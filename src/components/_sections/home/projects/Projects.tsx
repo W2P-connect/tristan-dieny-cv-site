@@ -1,27 +1,40 @@
 import SectionContainer from '@/components/containers/sectionContainer/SectionContainer'
+import { Locale } from '@/context/LanguageContext'
 import { projects } from '@/lib/projects'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
-export default function Projects() {
+export default function Projects({ locale }: { locale: Locale }) {
   return (
     <SectionContainer>
-      <h2>Projects</h2>
+      <h2 className="mb-8">
+        {locale === 'fr' ? 'Projets & Expériences' : 'Projects & Experiences'}
+      </h2>
 
-      {projects.map((project, index) => (
-        <div key={index} className="mb-6">
-          <Image
-            src={`${project.image}`}
-            alt={project.title}
-            width={300}
-            height={200}
-            className="w-full h-auto rounded-lg mb-4"
-          />
-          <h3 className="text-xl font-semibold">{project.title}</h3>
-          <p className="text-gray-600 dark:text-gray-400">{project.date}</p>
-          <p className="mt-2 text-gray-800 dark:text-gray-200">{project.description}</p>
-        </div>
-      ))}
+      <div className="flex lg:flex-row flex-col items-stretch gap-8">
+        {projects.map((project, index) => (
+          <div key={index} className="flex flex-col flex-1 justify-between mb-6 lg:max-w-[400px]">
+            <div className="mb-4">
+              <Image
+                src={`${project.image}`}
+                alt={project.title[locale]}
+                width={2048}
+                height={1024}
+                className="mb-4 rounded-lg w-full h-auto"
+              />
+              <h3 className="font-semibold text-xl">{project.title[locale]}</h3>
+              <p className="mb-4 !font-thin italic">{project.date[locale]}</p>
+              <p className="">{project.summary[locale]}</p>
+            </div>
+            <div>
+              <Link className="custom-button" href={`projects/${project.slug}`}>
+                {locale === 'fr' ? 'En savoir plus' : 'Read more'}
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
     </SectionContainer>
   )
 }
