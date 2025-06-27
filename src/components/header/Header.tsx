@@ -13,7 +13,7 @@ export function Header() {
   const { locale } = useLanguage()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
-  if (!locale) return null
+  if (!locale || !ROUTES) return null
 
   return (
     <header className="top-0 z-50 absolute inset-x-0">
@@ -57,37 +57,43 @@ export function Header() {
         <DialogPanel
           className={clx(
             'right-0 z-50 fixed inset-y-0 bg-white dark:bg-gray-darkest p-6',
-            'sm:ring-1 sm:ring-gray-900/10 w-full sm:max-w-sm overflow-y-auto'
+            'sm:ring-1 sm:ring-gray-900/10 w-full sm:max-w-sm overflow-y-auto',
+            'flex flex-col justify-between'
           )}
         >
-          <div className="flex justify-between items-center">
-            <LanguageToggle />
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 p-2.5 rounded-md text-gray-700"
-            >
-              <span className="sr-only">Close menu</span>
-              <XMarkIcon aria-hidden="true" className="size-6" />
-            </button>
-          </div>
-          <div className="flow-root mt-6">
-            <div className="-my-6 divide-y divide-gray-500/10">
-              <div className="space-y-2 py-6">
-                {Object.values(ROUTES[locale]).map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.path}
-                    className={clx(
-                      'block hover:bg-gray-50 dark:hover:bg-gray-800 -mx-3 px-3 py-2',
-                      'rounded-lg font-semibold text-gray-darkest dark:text-gray-lightest-2 text-base/7'
-                    )}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+          <div>
+            <div className="flex justify-between items-center">
+              <LanguageToggle />
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="-m-2.5 p-2.5 rounded-md text-gray-darkest dark:text-gray-lightest-2"
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon aria-hidden="true" className="size-6" />
+              </button>
+            </div>
+            <div className="flow-root mt-6">
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  {Object.values(ROUTES[locale]).map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.path}
+                      className={clx(
+                        'block hover:bg-gray-50 dark:hover:bg-gray-800 -mx-3 px-3 py-2',
+                        'rounded-lg font-semibold text-gray-darkest dark:text-gray-lightest-2 text-base/7'
+                      )}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
+          </div>
+          <div>
+            <ThemeToggle />
           </div>
         </DialogPanel>
         <div className="z-40 absolute inset-0 bg-[rgba(0,0,0,0.4)] backdrop-blur" />

@@ -4,6 +4,7 @@ import MainHeaderContainer from '@/components/containers/mainContainer/MainConta
 import { Locale } from '@/context/LanguageContext'
 import { headers } from 'next/headers'
 import React from 'react'
+import Projects from './projects/Projects'
 
 export default async function HomePage() {
   const header = await headers()
@@ -16,6 +17,7 @@ export default async function HomePage() {
       </div>
       <MainHeaderContainer bluredBackground>
         <Skills />
+        <Projects />
       </MainHeaderContainer>
     </>
   )

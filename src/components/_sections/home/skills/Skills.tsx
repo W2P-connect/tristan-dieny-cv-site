@@ -16,15 +16,10 @@ export default function Skills() {
         <div className="relative">
           <div
             id="skill-cards-scroller"
-            className="relative flex items-stretch gap-6 px-12 py-4 transition-all duration-700"
+            className="relative flex items-stretch gap-6 px-12 transition-all duration-700"
           >
             {skillCards.map((card, index) => (
-              <ClientSkillCardWrapper
-                key={index}
-                icon={card.icon}
-                title={card.title}
-                technologies={card.technologies}
-              />
+              <ClientSkillCardWrapper key={index} card={card} />
             ))}
           </div>
 
