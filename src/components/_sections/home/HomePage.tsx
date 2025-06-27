@@ -16,8 +16,8 @@ export default async function HomePage() {
         <NeonHeader locale={locale} />
       </div>
       <MainHeaderContainer bluredBackground>
-        <Skills />
-        <Projects />
+        <Skills locale={locale} />
+        <Projects locale={locale} />
       </MainHeaderContainer>
     </>
   )
