@@ -58,7 +58,7 @@ export function Header() {
           className={clx(
             'right-0 z-50 fixed inset-y-0 bg-white dark:bg-gray-darkest p-6',
             'sm:ring-1 sm:ring-gray-900/10 w-full sm:max-w-sm overflow-y-auto',
-            'flex flex-col justify-between',
+            'flex flex-col justify-between'
           )}
         >
           <div>
