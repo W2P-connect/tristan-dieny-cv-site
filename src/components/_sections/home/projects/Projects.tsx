@@ -28,7 +28,7 @@ export default function Projects({ locale }: { locale: Locale }) {
               <p className="">{project.summary[locale]}</p>
             </div>
             <div>
-              <Link className="custom-button" href={`projects/${project.slug}`}>
+              <Link className="custom-button" href={`${locale}/projects/${project.slug}`}>
                 {locale === 'fr' ? 'En savoir plus' : 'Read more'}
               </Link>
             </div>
