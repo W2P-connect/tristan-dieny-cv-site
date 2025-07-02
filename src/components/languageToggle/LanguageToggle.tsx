@@ -1,7 +1,7 @@
 'use client'
 
-import FrenchFlag from 'public/icons/flag/FrenchFlag'
-import UKFlag from 'public/icons/flag/UKFlag'
+import FrenchFlag from 'public/img/icons/flag/FrenchFlag'
+import UKFlag from 'public/img/icons/flag/UKFlag'
 import React, { useState } from 'react'
 import { clx } from '@/utilts'
 import { useLanguage } from '@/context/LanguageContext'

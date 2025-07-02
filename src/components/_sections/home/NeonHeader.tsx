@@ -42,7 +42,7 @@ export const NeonHeader = ({ locale }: NeonHeaderProps) => {
               <div className="">
                 <Image
                   className="rounded-full overflow-hidden"
-                  src={`/icons/social/${social.icon}`}
+                  src={`/img/icons/social/${social.icon}`}
                   alt={social.name}
                   width={36}
                   height={36}
@@ -50,11 +50,11 @@ export const NeonHeader = ({ locale }: NeonHeaderProps) => {
               </div>
 
               <div>
-                <p className="font-semibold !text-gray-darker dark:!text-gray-lightest-2 small-text">
+                <p className="font-semibold !text-gray-darker dark:!text-gray-lightest-2 smallest-text">
                   {social.name}
                 </p>
                 <Link key={index} href={social.url} target="_blank" rel="noopener noreferrer">
-                  <div className="flex items-center gap-2 small-text">
+                  <div className="flex items-center gap-2 smallest-text">
                     {social.userName}
                     <ArrowTopRightOnSquareIcon width={12} />
                   </div>
