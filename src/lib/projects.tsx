@@ -1,3 +1,5 @@
+import { ToolKey } from './tools'
+
 export type Projects = {
   title: { fr: string; en: string }
   date: { fr: string; en: string }
@@ -5,9 +7,10 @@ export type Projects = {
   company: string
   image: string
   slug: string
-  tools: string[]
+  tools: ToolKey[]
   description: { fr: string; en: string } // compétences développées
   summary: { fr: string; en: string } // description du projet
+  ressources?: { label: string; url: string }[]
 }
 
 export const projects: Projects[] = [
@@ -25,17 +28,17 @@ export const projects: Projects[] = [
     slug: 'spotlight',
     company: 'Spotlight',
     tools: [
-      'Supabase',
-      'Vercel',
-      'React Native',
-      'Next.js',
-      'Expo',
-      'Prisma',
-      'Tailwind',
-      'Typescript',
-      'Firebase',
-      'EAS',
-      'Figma',
+      'supabase',
+      'vercel',
+      'reactnative',
+      'nextjs',
+      'expo',
+      'prisma',
+      'tailwind',
+      'typescript',
+      'firebase',
+      'eas',
+      'figma',
     ],
     summary: {
       fr: "Application mobile sociale pour le suivi et le partage d'entraînements entre passionnés de musculation et de powerlifting. L'utilisateur peut créer des séances, suivre ses performances, interagir avec ses amis, et découvrir de nouveaux programmes.",
@@ -58,19 +61,33 @@ export const projects: Projects[] = [
     location: 'Remote',
     image: '/img/projects/w2p.jpg',
     slug: 'w2p',
+    ressources: [
+      {
+        label: 'Website',
+        url: 'https://woocommerce-to-pipedrive.com/',
+      },
+      {
+        label: 'Plugin page',
+        url: 'https://wordpress.org/plugins/w2p-pipedrive-crm-integration-for-woocommerce/',
+      },
+      {
+        label: 'Wordpress SVN repository',
+        url: 'https://plugins.svn.wordpress.org/w2p-pipedrive-crm-integration-for-woocommerce/',
+      },
+    ],
     company: 'W2P',
     tools: [
-      'WordPress',
-      'WooCommerce',
-      'Supabase',
-      'Vercel',
-      'Stripe',
-      'Next.js',
-      'React',
-      'PHP',
-      'Prisma',
-      'Tailwind',
-      'Typescript',
+      'wordpress',
+      'woocommerce',
+      'supabase',
+      'vercel',
+      'stripe',
+      'nextjs',
+      'react',
+      'php',
+      'prisma',
+      'tailwind',
+      'typescript',
     ],
     summary: {
       fr: 'Plugin WordPress permettant de synchroniser automatiquement les données WooCommerce avec le CRM Pipedrive (commandes, clients, produits), tout en gérant les abonnements via Stripe.',
@@ -95,16 +112,16 @@ export const projects: Projects[] = [
     company: 'LLFC',
     slug: 'llfc',
     tools: [
-      'WordPress',
-      'WooCommerce',
-      'React',
-      'PHP',
-      'Node.js',
-      'Azure',
-      'Synology',
-      'Clickup',
-      'GitHub',
-      '365 Admin',
+      'wordpress',
+      'woocommerce',
+      'react',
+      'php',
+      'nodejs',
+      'azure',
+      'synology',
+      'clickup',
+      'github',
+      '365admin',
     ],
     summary: {
       fr: "Entreprise française spécialisée dans le chanvre. En charge de la digitalisation, de l'automatisation des flux commerciaux et de la coordination IT entre les différents pôles (production, commercial, analyse).",
