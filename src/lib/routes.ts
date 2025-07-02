@@ -1,8 +1,9 @@
 import { Locale } from '@/context/LanguageContext'
+import { projects } from './projects'
 
-export type PathKeys = 'home' | 'projets' | 'competences' | 'about' | 'contact'
+export type PathKeys = 'home' | 'projects' | 'about' | 'contact'
 
-type RouteMeta = {
+export type RouteMeta = {
   path: string
   label: string
   title: string
@@ -10,6 +11,32 @@ type RouteMeta = {
   includeInSitemap?: boolean
   priority?: number
   changeFrequency?: 'daily' | 'weekly' | 'monthly'
+  submenu?: Record<Locale, RouteMeta[]>
+}
+
+const projectsToRoute = (): Record<Locale, RouteMeta[]> => {
+  const projectsRoute = {
+    fr: [] as RouteMeta[],
+    en: [] as RouteMeta[],
+  }
+
+  const availlableLocales: Locale[] = ['fr', 'en']
+
+  availlableLocales.forEach((locale) => {
+    projectsRoute[locale] = projects.map((project) => {
+      return {
+        path: `/${locale}/projects/${project.slug}`,
+        label: project.title[locale],
+        title: project.title[locale],
+        description: project.summary[locale],
+        includeInSitemap: true,
+        priority: 0.8,
+        changeFrequency: 'monthly',
+      }
+    })
+  })
+
+  return projectsRoute
 }
 
 export const ROUTES: Record<Locale, Record<PathKeys, RouteMeta>> = {
@@ -24,23 +51,15 @@ export const ROUTES: Record<Locale, Record<PathKeys, RouteMeta>> = {
       priority: 1,
       changeFrequency: 'monthly',
     },
-    projets: {
-      path: '/fr/projets',
+    projects: {
+      path: '/fr/projects',
       label: 'Projets',
       title: 'Projets – Tristan',
       description: 'Découvrez une sélection de projets récents réalisés par Tristan.',
       includeInSitemap: true,
       priority: 0.8,
       changeFrequency: 'monthly',
-    },
-    competences: {
-      path: '/fr/competences',
-      label: 'Compétences',
-      title: 'Compétences – Tristan',
-      description: 'Compétences techniques et transversales de Tristan, développeur full stack.',
-      includeInSitemap: true,
-      priority: 0.6,
-      changeFrequency: 'monthly',
+      submenu: projectsToRoute(),
     },
     about: {
       path: '/fr/a-propos',
@@ -73,7 +92,7 @@ export const ROUTES: Record<Locale, Record<PathKeys, RouteMeta>> = {
       priority: 1,
       changeFrequency: 'monthly',
     },
-    projets: {
+    projects: {
       path: '/en/projects',
       label: 'Projects',
       title: 'Projects – Tristan',
@@ -81,15 +100,7 @@ export const ROUTES: Record<Locale, Record<PathKeys, RouteMeta>> = {
       includeInSitemap: true,
       priority: 0.8,
       changeFrequency: 'monthly',
-    },
-    competences: {
-      path: '/en/skills',
-      label: 'Skills',
-      title: 'Skills – Tristan',
-      description: 'Technical and transversal skills of Tristan, full stack developer.',
-      includeInSitemap: true,
-      priority: 0.6,
-      changeFrequency: 'monthly',
+      submenu: projectsToRoute(),
     },
     about: {
       path: '/en/about',
