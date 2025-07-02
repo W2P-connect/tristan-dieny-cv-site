@@ -8,6 +8,7 @@ import { clx } from '@/utilts'
 import LanguageToggle from '../languageToggle/LanguageToggle'
 import { ROUTES } from '@/lib/routes'
 import { useLanguage } from '@/context/LanguageContext'
+import HeaderSubmenu from './HeaderSubmenu'
 
 export function Header() {
   const { locale } = useLanguage()
@@ -36,15 +37,23 @@ export function Header() {
             <Bars3Icon aria-hidden="true" className="size-6" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
+        <div className="hidden lg:flex items-center lg:gap-x-12">
           {Object.values(ROUTES[locale]).map((item) => (
-            <a
-              key={item.label}
-              href={item.path}
-              className="font-semibold text-gray-darkest dark:text-gray-lightest-2 text-sm/6 dark:gray-lightest-2"
-            >
-              {item.label}
-            </a>
+            <div key={item.label}>
+              {item.submenu ? (
+                <HeaderSubmenu label={item.label} subroutes={item.submenu[locale]} />
+              ) : (
+                <a
+                  href={item.path}
+                  className={clx(
+                    'block hover:bg-gray-50 dark:hover:bg-gray-800 -mx-3 px-3 py-2',
+                    'rounded-lg font-semibold text-gray-darkest dark:text-gray-lightest-2 text-base/7'
+                  )}
+                >
+                  {item.label}
+                </a>
+              )}
+            </div>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -77,16 +86,21 @@ export function Header() {
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
                   {Object.values(ROUTES[locale]).map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.path}
-                      className={clx(
-                        'block hover:bg-gray-50 dark:hover:bg-gray-800 -mx-3 px-3 py-2',
-                        'rounded-lg font-semibold text-gray-darkest dark:text-gray-lightest-2 text-base/7'
+                    <div key={item.label}>
+                      {item.submenu ? (
+                        <HeaderSubmenu label={item.label} subroutes={item.submenu[locale]} />
+                      ) : (
+                        <a
+                          href={item.path}
+                          className={clx(
+                            'block hover:bg-gray-50 dark:hover:bg-gray-800 -mx-3 px-3 py-2',
+                            'rounded-lg font-semibold text-gray-darkest dark:text-gray-lightest-2 text-base/7'
+                          )}
+                        >
+                          {item.label}
+                        </a>
                       )}
-                    >
-                      {item.label}
-                    </a>
+                    </div>
                   ))}
                 </div>
               </div>
