@@ -11,7 +11,7 @@ export type Projects = {
   tools: ToolKey[]
   description: { fr: string; en: string } // compétences développées
   summary: { fr: string; en: string } // description du projet
-  ressources?: { label: string; url: string }[]
+  ressources: { label: string; url: string }[]
 }
 
 export const projects: Projects[] = [
@@ -29,6 +29,24 @@ export const projects: Projects[] = [
     slug: 'spotlight',
     company: 'Spotlight',
     logo: '/img/projects/SPOTLIGHT/logo.jpg',
+    ressources: [
+      {
+        label: 'IOS app (todo)',
+        url: '',
+      },
+      {
+        label: 'Android app (todo)',
+        url: '',
+      },
+      {
+        label: 'client app repository (todo)',
+        url: '',
+      },
+      {
+        label: 'sbackend app repository (todo)',
+        url: '',
+      },
+    ],
     tools: [
       'supabase',
       'vercel',
