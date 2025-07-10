@@ -55,18 +55,18 @@ export default function HeaderSubmenu({ subroutes, label }: Props) {
                     <Link
                       href={item.path}
                       key={item.title}
-                      className="relative cursor-pointer items-center flex gap-x-6 hover:bg-gray-lightest hover:dark:bg-gray-dark p-4 rounded-lg transition-all duration-150"
+                      className="relative flex items-center gap-x-6 hover:bg-gray-lightest hover:dark:bg-gray-dark p-4 rounded-lg transition-all duration-150 cursor-pointer"
                     >
                       <Image
                         src={item.icon}
                         alt={item.title}
                         width={48}
                         height={48}
-                        className='size-12 rounded-lg object-cover'
+                        className='rounded-lg size-12 object-cover'
                       />
                       <div>
                         <p className="font-semibold leading-4">{item.title}</p>
-                        <p className="mt-1 !text-gray-light">{item.subtitle}</p>
+                        <p className="mt-1 !text-gray-dark !dark:text-gray-light">{item.subtitle}</p>
                       </div>
                     </Link>
                   ))}
