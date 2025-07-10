@@ -133,6 +133,20 @@ export const projects: Projects[] = [
     company: 'LLFC',
     logo: '/img/projects/LLFC/logo.jpg',
     slug: 'llfc',
+    ressources: [
+      {
+        label: 'LLFC – Compléments & expertise globale',
+        url: 'https://llfc.fr/',
+      },
+      {
+        label: 'LLFC – Spécialisation CBD',
+        url: 'https://labofrancaisduchanvre.com/',
+      },
+      {
+        label: 'Portail d’analyse – LLFC',
+        url: 'https://analyse-llfc.fr/',
+      },
+    ],
     tools: [
       'wordpress',
       'woocommerce',
