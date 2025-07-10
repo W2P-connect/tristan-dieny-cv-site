@@ -81,7 +81,7 @@ export const projects: Projects[] = [
     location: 'Remote',
     image: '/img/projects/W2P/banner.jpg',
     slug: 'w2p',
-    logo: '/img/projects/W2P/logo.png',
+    logo: '/img/projects/W2P/logo.jpg',
     ressources: [
       {
         label: 'Website',
