@@ -1,12 +1,14 @@
-import { RouteMeta } from '@/lib/routes'
+import { Submenu } from '@/lib/routes'
 import { clx } from '@/utilts'
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
+import Image from 'next/image'
+import Link from 'next/link'
 
 import { useRef, useState } from 'react'
 
 type Props = {
-  subroutes: RouteMeta[]
+  subroutes: Submenu[]
   label: string
 }
 
@@ -28,7 +30,7 @@ export default function HeaderSubmenu({ subroutes, label }: Props) {
               timeoutId.current = setTimeout(() => setIsHovered(false), 200)
             }}
           >
-            <PopoverButton className="inline-flex items-center gap-x-1 font-semibold text-gray-900">
+            <PopoverButton className="inline-flex items-center gap-x-1 font-semibold text-black dark:text-white">
               <span>{label}</span>
               <ChevronDownIcon aria-hidden="true" className="size-5" />
             </PopoverButton>
@@ -50,21 +52,23 @@ export default function HeaderSubmenu({ subroutes, label }: Props) {
               <div className="flex-auto bg-white dark:bg-black shadow-lg rounded-3xl ring-1 ring-gray-900/5 dark:ring-0 w-screen max-w-md overflow-hidden">
                 <div className="p-4">
                   {subroutes.map((item) => (
-                    <div
+                    <Link
+                      href={item.path}
                       key={item.title}
-                      className="group relative flex gap-x-6 hover:bg-gray-50 p-4 rounded-lg"
+                      className="relative cursor-pointer items-center flex gap-x-6 hover:bg-gray-lightest hover:dark:bg-gray-dark p-4 rounded-lg transition-all duration-150"
                     >
-                      {/* <div className="flex flex-none justify-center items-center bg-gray-50 group-hover:bg-white mt-1 rounded-lg size-11">
-                                                <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
-                                            </div> */}
+                      <Image
+                        src={item.icon}
+                        alt={item.title}
+                        width={48}
+                        height={48}
+                        className='size-12 rounded-lg object-cover'
+                      />
                       <div>
-                        <a href={item.path} className="font-semibold text-gray-900">
-                          {item.label}
-                          <span className="absolute inset-0" />
-                        </a>
-                        <p className="mt-1 text-gray-600">{item.description}</p>
+                        <p className="font-semibold leading-4">{item.title}</p>
+                        <p className="mt-1 !text-gray-light">{item.subtitle}</p>
                       </div>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>

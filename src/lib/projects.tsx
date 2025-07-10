@@ -6,6 +6,7 @@ export type Projects = {
   location: string
   company: string
   image: string
+  logo: string,
   slug: string
   tools: ToolKey[]
   description: { fr: string; en: string } // compétences développées
@@ -24,9 +25,10 @@ export const projects: Projects[] = [
       en: 'January 2025 – Present',
     },
     location: 'Remote',
-    image: '/img/projects/spotlight.jpg',
+    image: '/img/projects/SPOTLIGHT/banner.jpg',
     slug: 'spotlight',
     company: 'Spotlight',
+    logo: '/img/projects/SPOTLIGHT/logo.jpg',
     tools: [
       'supabase',
       'vercel',
@@ -59,8 +61,9 @@ export const projects: Projects[] = [
       en: 'January 2024 – Present',
     },
     location: 'Remote',
-    image: '/img/projects/w2p.jpg',
+    image: '/img/projects/W2P/banner.jpg',
     slug: 'w2p',
+    logo: '/img/projects/W2P/logo.png',
     ressources: [
       {
         label: 'Website',
@@ -108,8 +111,9 @@ export const projects: Projects[] = [
       en: 'March 2021 – November 2024',
     },
     location: 'Paris',
-    image: '/img/projects/LLFC.jpg',
+    image: '/img/projects/LLFC/banner.jpg',
     company: 'LLFC',
+    logo: '/img/projects/LLFC/logo.jpg',
     slug: 'llfc',
     tools: [
       'wordpress',

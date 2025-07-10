@@ -11,13 +11,18 @@ export type RouteMeta = {
   includeInSitemap?: boolean
   priority?: number
   changeFrequency?: 'daily' | 'weekly' | 'monthly'
-  submenu?: Record<Locale, RouteMeta[]>
+  submenu?: Record<Locale, Submenu[]>
 }
 
-const projectsToRoute = (): Record<Locale, RouteMeta[]> => {
+export type Submenu = {
+  icon: string
+  subtitle: string
+} & RouteMeta
+
+const projectsToRoute = (): Record<Locale, Submenu[]> => {
   const projectsRoute = {
-    fr: [] as RouteMeta[],
-    en: [] as RouteMeta[],
+    fr: [] as Submenu[],
+    en: [] as Submenu[],
   }
 
   const availlableLocales: Locale[] = ['fr', 'en']
@@ -27,11 +32,13 @@ const projectsToRoute = (): Record<Locale, RouteMeta[]> => {
       return {
         path: `/${locale}/projects/${project.slug}`,
         label: project.title[locale],
-        title: project.title[locale],
+        title: project.company,
         description: project.summary[locale],
         includeInSitemap: true,
         priority: 0.8,
         changeFrequency: 'monthly',
+        icon: project.logo,
+        subtitle: project.title[locale]
       }
     })
   })
