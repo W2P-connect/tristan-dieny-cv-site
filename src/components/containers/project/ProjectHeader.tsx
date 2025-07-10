@@ -19,7 +19,7 @@ export default function ProjectHeader({ project, locale }: Props) {
         alt={project.title[locale]}
         width={2048}
         height={1024}
-        className="shadow-lg mb-4 rounded-2xl w-full h-auto"
+        className="shadow-lg mb-12 rounded-2xl w-full h-auto"
       />
 
       <h1>{project.title[locale]}</h1>

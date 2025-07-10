@@ -25,7 +25,7 @@ export default async function W2p() {
 
   return (
     <MainHeaderContainer bluredBackground>
-      <SectionContainer>
+      <SectionContainer className='!pt-24'>
         <ProjectHeader project={project} locale={locale} />
 
         <div className="space-y-12 mt-16">
