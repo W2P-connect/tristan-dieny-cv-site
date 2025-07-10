@@ -18,7 +18,5 @@ export default async function W2p() {
 
   const content = w2pProjectContent
 
-  return (
-    <Project project={project} locale={locale} content={content} />
-  )
+  return <Project project={project} locale={locale} content={content} />
 }

@@ -18,7 +18,5 @@ export default async function Llfc() {
 
   const content = llfcProjectContent
 
-  return (
-    <Project project={project} locale={locale} content={content} />
-  )
+  return <Project project={project} locale={locale} content={content} />
 }

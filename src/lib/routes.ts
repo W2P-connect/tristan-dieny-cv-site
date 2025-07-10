@@ -38,7 +38,7 @@ const projectsToRoute = (): Record<Locale, Submenu[]> => {
         priority: 0.8,
         changeFrequency: 'monthly',
         icon: project.logo,
-        subtitle: project.title[locale]
+        subtitle: project.title[locale],
       }
     })
   })

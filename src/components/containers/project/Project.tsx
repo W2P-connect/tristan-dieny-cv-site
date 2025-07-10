@@ -10,27 +10,27 @@ import { Locale } from '@/context/LanguageContext'
 import { ProjectContent } from '@/types'
 
 type Props = {
-    project: Projects
-    locale: Locale
-    content: ProjectContent
+  project: Projects
+  locale: Locale
+  content: ProjectContent
 }
 export default function Project({ project, locale, content }: Props) {
-    
-    return (
-        <MainHeaderContainer bluredBackground>
-            <SectionContainer className='!pt-24'>
-                <ProjectHeader project={project} locale={locale} />
+  return (
+    <MainHeaderContainer bluredBackground>
+      <SectionContainer className="!pt-24">
+        <ProjectHeader project={project} locale={locale} />
 
-                <div className="space-y-12 mt-16">
-                    {Object.values(content[locale]).map((section) => (
-                        <div key={section.key}>
-                            <ProjectSection section={section} />
-                            <RenderIf condition={!!section.showTools}>
-                                <ProjectTools projectTools={project.tools} />
-                            </RenderIf>
-                        </div>
-                    ))}
-                </div>
-            </SectionContainer>
-        </MainHeaderContainer>)
+        <div className="space-y-12 mt-16">
+          {Object.values(content[locale]).map((section) => (
+            <div key={section.key}>
+              <ProjectSection section={section} />
+              <RenderIf condition={!!section.showTools}>
+                <ProjectTools projectTools={project.tools} />
+              </RenderIf>
+            </div>
+          ))}
+        </div>
+      </SectionContainer>
+    </MainHeaderContainer>
+  )
 }

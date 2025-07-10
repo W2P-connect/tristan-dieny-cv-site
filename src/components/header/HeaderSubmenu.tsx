@@ -62,11 +62,13 @@ export default function HeaderSubmenu({ subroutes, label }: Props) {
                         alt={item.title}
                         width={48}
                         height={48}
-                        className='rounded-lg size-12 object-cover'
+                        className="rounded-lg size-12 object-cover"
                       />
                       <div>
                         <p className="font-semibold leading-4">{item.title}</p>
-                        <p className="mt-1 !text-gray-dark !dark:text-gray-light">{item.subtitle}</p>
+                        <p className="mt-1 !text-gray-dark !dark:text-gray-light">
+                          {item.subtitle}
+                        </p>
                       </div>
                     </Link>
                   ))}

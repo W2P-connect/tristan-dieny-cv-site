@@ -6,7 +6,7 @@ export type Projects = {
   location: string
   company: string
   image: string
-  logo: string,
+  logo: string
   slug: string
   tools: ToolKey[]
   description: { fr: string; en: string } // compétences développées
