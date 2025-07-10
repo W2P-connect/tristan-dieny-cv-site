@@ -1,51 +1,63 @@
-import { ProjectSectionContent } from '@/types'
 import React from 'react'
+import { SectionBlock } from '@/types'
 
 type Props = {
-  section: ProjectSectionContent
-  sectionKey: string
+  section: SectionBlock
+  depth?: number
 }
 
-export default function ProjectSection({ section, sectionKey }: Props) {
-  return (
-    <section key={sectionKey} className="space-y-4">
-      <h2 className="font-bold text-2xl">{section.heading}</h2>
+export default function ProjectSection({ section, depth = 0 }: Props) {
+  const headingTag = ['h2', 'h3', 'h4', 'h5'][depth] || 'h6'
+  const Heading = headingTag as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
-      {'paragraphs' in section &&
-        section.paragraphs.map((p, i) => (
-          <p key={i} className="text-muted-foreground text-base leading-relaxed">
-            {p}
+  const headingClass = [
+    'text-2xl',
+    'text-xl',
+    'text-lg',
+    'text-base',
+    'text-sm'
+  ][depth] || 'text-sm'
+
+  const spacing = depth === 0 ? 'space-y-6' : 'space-y-4'
+
+  if (section.type === 'text') {
+    return (
+      <section key={section.key} className={spacing}>
+        {section.heading && (
+          <Heading className={`font-bold ${headingClass}`}>
+            {section.heading}
+          </Heading>
+        )}
+
+        {(section.content as string[]).map((paragraph, i) => (
+          <p
+            key={i}
+            className="text-muted-foreground text-base leading-relaxed"
+          >
+            {paragraph}
           </p>
         ))}
+      </section>
+    )
+  }
 
-      {'intro' in section && (
-        <p className="text-muted-foreground text-base leading-relaxed">{section.intro}</p>
-      )}
+  if (section.type === 'group') {
+    return (
+      <section key={section.key} className={spacing}>
+        {section.heading && (
+          <Heading className={`font-bold ${headingClass}`}>
+            {section.heading}
+          </Heading>
+        )}
 
-      {'plugin' in section && (
-        <div>
-          <h3 className="mt-4 font-semibold">{section.plugin.title}</h3>
-          <p className="text-muted-foreground text-base leading-relaxed">
-            {section.plugin.details}
-          </p>
-        </div>
-      )}
+        {(section.content as SectionBlock[]).map((sub) => (
+          <div key={sub.key}>
+            <ProjectSection section={sub} depth={depth + 1} />
+          </div>
+        ))}
+      </section>
+    )
+  }
 
-      {'website' in section && (
-        <div>
-          <h3 className="mt-4 font-semibold">{section.website.title}</h3>
-          <p className="text-muted-foreground text-base leading-relaxed">
-            {section.website.details}
-          </p>
-        </div>
-      )}
-
-      {'api' in section && (
-        <div>
-          <h3 className="mt-4 font-semibold">{section.api.title}</h3>
-          <p className="text-muted-foreground text-base leading-relaxed">{section.api.details}</p>
-        </div>
-      )}
-    </section>
-  )
+  return null
 }
