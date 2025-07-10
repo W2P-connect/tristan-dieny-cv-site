@@ -1,14 +1,11 @@
-export type ParagraphSection = {
-  heading: string
-  paragraphs: string[]
-}
+export type ProjectContent = {
+  [lang: string]: SectionBlock[];
+};
 
-export type TechnicalSection = {
-  heading: string
-  intro: string
-  plugin: { title: string; details: string }
-  website: { title: string; details: string }
-  api: { title: string; details: string }
-}
-
-export type ProjectSectionContent = ParagraphSection | TechnicalSection
+export type SectionBlock = {
+  key: string;
+  heading: string;
+  type: 'text' | 'group';
+  content: string[] | SectionBlock[];
+  showTools?: boolean;
+};
