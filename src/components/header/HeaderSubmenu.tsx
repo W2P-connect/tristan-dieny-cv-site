@@ -4,8 +4,9 @@ import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 type Props = {
   subroutes: Submenu[]
@@ -15,6 +16,12 @@ type Props = {
 export default function HeaderSubmenu({ subroutes, label }: Props) {
   const [isHovered, setIsHovered] = useState(false)
   const timeoutId = useRef<NodeJS.Timeout>(undefined)
+
+  const pathname = usePathname()
+
+  useEffect(() => {
+    setIsHovered(false)
+  }, [pathname])
 
   return (
     <Popover className="relative">
