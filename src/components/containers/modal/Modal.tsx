@@ -31,12 +31,12 @@ const Modal = () => {
         visible ? 'opacity-100' : 'pointer-events-none'
       )}
     >
-      <div className="flex items-center justify-center">
+      <div className="flex justify-center items-center">
         <div
           onClick={(e) => e.stopPropagation()}
           className={clx(
             'bg-gray-lightest-2 dark:bg-black rounded-lg shadow-lg',
-            'max-w-md w-full relative cursor-default'
+            'max-w-3xl w-full relative cursor-default'
           )}
         >
           {children}
