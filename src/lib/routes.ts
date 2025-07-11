@@ -1,7 +1,7 @@
 import { Locale } from '@/context/LanguageContext'
 import { projects } from './projects'
 
-export type PathKeys = 'home' | 'projects' | 'about' | 'contact'
+export type PathKeys = 'home' | 'projects'
 
 export type RouteMeta = {
   path: string
@@ -68,25 +68,6 @@ export const ROUTES: Record<Locale, Record<PathKeys, RouteMeta>> = {
       changeFrequency: 'monthly',
       submenu: projectsToRoute(),
     },
-    about: {
-      path: '/fr/a-propos',
-      label: 'A propos',
-      title: 'À propos – Tristan',
-      description: 'Parcours et philosophie de Tristan en tant que développeur passionné.',
-      includeInSitemap: true,
-      priority: 0.5,
-      changeFrequency: 'monthly',
-    },
-    contact: {
-      path: '/fr/contact',
-      label: 'Contact',
-      title: 'Contact – Tristan',
-      description:
-        'Prenez contact avec Tristan, développeur full stack disponible pour vos projets.',
-      includeInSitemap: true,
-      priority: 0.4,
-      changeFrequency: 'monthly',
-    },
   },
   en: {
     home: {
@@ -108,25 +89,6 @@ export const ROUTES: Record<Locale, Record<PathKeys, RouteMeta>> = {
       priority: 0.8,
       changeFrequency: 'monthly',
       submenu: projectsToRoute(),
-    },
-    about: {
-      path: '/en/about',
-      label: 'About',
-      title: 'About – Tristan',
-      description: 'Background and philosophy of Tristan as a passionate developer.',
-      includeInSitemap: true,
-      priority: 0.5,
-      changeFrequency: 'monthly',
-    },
-    contact: {
-      path: '/en/contact',
-      label: 'Contact',
-      title: 'Contact – Tristan',
-      description:
-        'Get in touch with Tristan, full stack developer available for new opportunities.',
-      includeInSitemap: true,
-      priority: 0.4,
-      changeFrequency: 'monthly',
     },
   },
 }
