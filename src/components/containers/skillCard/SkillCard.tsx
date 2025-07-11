@@ -37,8 +37,8 @@ export const SkillCard = ({
       {...(onClick ? { onClick } : {})}
     >
       <div className="mb-2">{card.icon}</div>
-      <h3 className="mb-2 font-semibold !text-gray-lightest text-lg">{card.title}</h3>
-      <p className="font-light !text-gray-light leading-relaxed">
+      <h3 className="mb-2 font-semibold !text-gray-lightest-2 text-lg">{card.title}</h3>
+      <p className="font-light !text-gray-lightest leading-relaxed">
         {card.technologies.map((tech, index) => (
           <span key={index}>
             {tech}
@@ -49,9 +49,9 @@ export const SkillCard = ({
 
       <RenderIf condition={showDetails}>
         <div className="mt-4">
-          <ul className="list-disc list-inside pl-2">
+          <ul className="pl-2 list-disc list-inside">
             {card.details[locale].map((desc, index) => (
-              <li key={index}>{desc}</li>
+              <li className='!text-gray-lightest' key={index}>{desc}</li>
             ))}
           </ul>
         </div>

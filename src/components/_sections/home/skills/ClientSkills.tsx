@@ -30,13 +30,13 @@ export default function ClientSkills({ id }: { id: string }) {
     timouOutId.current = setInterval(() => {
       const skillContainer = document.querySelector(`#${id}`) as HTMLElement | null
 
-      const firstSkill = skillContainer?.children[1]
-      if (!firstSkill) return
+      // const firstSkill = skillContainer?.children[1]
+      // if (!firstSkill) return
 
-      const { width } = firstSkill.getBoundingClientRect()
-      const blogWidth = width + 24
+      // const { width } = firstSkill.getBoundingClientRect()
+      // const blogWidth = width + 24
 
-      setRight((prev) => (prev > blogWidth * (skillCards.length - 2) ? 0 : prev + blogWidth))
+      // setRight((prev) => (prev > blogWidth * (skillCards.length - 2) ? 0 : prev + blogWidth))
       animateProgressBar()
     }, scrollDelay)
 
