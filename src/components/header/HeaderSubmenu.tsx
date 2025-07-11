@@ -55,7 +55,7 @@ export default function HeaderSubmenu({ subroutes, label }: Props) {
                     <Link
                       href={item.path}
                       key={item.title}
-                      className="relative flex items-center gap-x-6 hover:bg-gray-lightest hover:dark:bg-gray-dark p-4 rounded-lg transition-all duration-150 cursor-pointer"
+                      className="relative flex items-center gap-x-6 hover:bg-gray-lightest hover:dark:bg-gray-darkest p-4 rounded-lg transition-all duration-150 cursor-pointer"
                     >
                       <Image
                         src={item.icon}
