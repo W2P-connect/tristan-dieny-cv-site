@@ -9,6 +9,7 @@ import LanguageToggle from '../languageToggle/LanguageToggle'
 import { ROUTES } from '@/lib/routes'
 import { useLanguage } from '@/context/LanguageContext'
 import HeaderSubmenu from './HeaderSubmenu'
+import Link from 'next/link'
 
 export function Header() {
   const { locale } = useLanguage()
@@ -55,6 +56,7 @@ export function Header() {
               )}
             </div>
           ))}
+          <Link className='custom-button' target='_blank' href={`/Resume.pdf`}>{locale === 'en' ? "Resume" : "CV"}</Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <ThemeToggle />
@@ -102,6 +104,9 @@ export function Header() {
                       )}
                     </div>
                   ))}
+                  <div className='mt-6'>
+                    <Link className='custom-button' target='_blank' href={`/Resume.pdf`}>{locale === 'en' ? "Resume" : "CV"}</Link>
+                  </div>
                 </div>
               </div>
             </div>
