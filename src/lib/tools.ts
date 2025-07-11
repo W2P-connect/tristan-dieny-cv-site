@@ -45,6 +45,8 @@ export type ToolKey =
   | 'clickup'
   | 'github'
   | '365admin'
+  | 'eslint'
+  | 'mobx'
 
 export const tools: Record<ToolKey, Tool> = {
   wordpress: {
@@ -62,7 +64,7 @@ export const tools: Record<ToolKey, Tool> = {
   supabase: {
     name: 'Supabase',
     url: 'https://supabase.com/',
-    icon: '/img/icons/tools/supabase.png',
+    icon: '/img/icons/tools/supabase.webp',
     category: ['database', 'infrastructure', 'library'],
   },
   vercel: {
@@ -114,7 +116,7 @@ export const tools: Record<ToolKey, Tool> = {
     category: ['database', 'library'],
   },
   tailwind: {
-    name: 'Tailwind CSS',
+    name: 'Tailwind',
     url: 'https://tailwindcss.com/',
     icon: '/img/icons/tools/tailwind.png',
     category: ['library', 'frontend'],
@@ -158,7 +160,7 @@ export const tools: Record<ToolKey, Tool> = {
   synology: {
     name: 'Synology',
     url: 'https://www.synology.com/',
-    icon: '/img/icons/tools/synology.png',
+    icon: '/img/icons/tools/synology.jpg',
     category: ['infrastructure'],
   },
   clickup: {
@@ -174,9 +176,21 @@ export const tools: Record<ToolKey, Tool> = {
     category: ['devtools'],
   },
   '365admin': {
-    name: 'Microsoft 365 Admin',
+    name: '365 Admin',
     url: 'https://admin.microsoft.com/',
     icon: '/img/icons/tools/365admin.png',
     category: ['cloud', 'collaboration'],
+  },
+  'eslint': {
+    name: 'ESLint',
+    url: 'https://eslint.org/',
+    icon: '/img/icons/tools/eslint.png',
+    category: ['devtools'],
+  },
+  'mobx': {
+    name: 'MobX',
+    url: 'https://mobx.js.org/README.html',
+    icon: '/img/icons/tools/mobx.png',
+    category: ['library', 'frontend'],
   },
 }
