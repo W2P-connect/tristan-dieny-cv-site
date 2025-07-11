@@ -3,11 +3,12 @@
 import { Projects } from '@/lib/projects'
 import Image from 'next/image'
 import React, { useMemo, useState } from 'react'
-import { ToolCategory, tools } from '@/lib/tools'
+import { ToolCategory, ToolKey, tools } from '@/lib/tools'
 import { clx } from '@/utilts'
+import Tool from '@/components/general/tool/Tool'
 
 type Props = {
-  projectTools: Projects['tools']
+  projectTools: ToolKey[]
 }
 
 export default function ProjectTools({ projectTools }: Props) {
@@ -33,22 +34,12 @@ export default function ProjectTools({ projectTools }: Props) {
             <div
               key={index}
               className={clx(
-                'transition-opacity duration-300 min-w-20',
-                'flex flex-col justify-between',
+                'transition-opacity duration-300',
                 (selectedCategory && tool.category.includes(selectedCategory)) || !selectedCategory
                   ? 'opacity-100'
-                  : 'opacity-20'
-              )}
-            >
-              <Image
-                src={`${tool.icon}`}
-                alt={tool.name}
-                width={44}
-                height={44}
-                className="mx-auto mb-2 rounded-full"
-              />
-              <p className="font-semibold text-center small-text">{tool.name}</p>
-              {/* <p className='!text-gray-light text-center smallest-text'>{tool.category}</p> */}
+                  : 'opacity-10 '
+              )}>
+              <Tool tool={tool} />
             </div>
           )
         })}
