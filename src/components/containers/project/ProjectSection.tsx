@@ -24,13 +24,11 @@ export default function ProjectSection({ section, depth = 0 }: Props) {
 
         {(section.content as string[]).map((paragraph, i) => (
           <React.Fragment key={i}>
-            {
-              typeof paragraph === 'string'
-                ? <p className="text-muted-foreground text-base leading-relaxed">
-                  {paragraph}
-                </p>
-                : paragraph
-            }
+            {typeof paragraph === 'string' ? (
+              <p className="text-muted-foreground text-base leading-relaxed">{paragraph}</p>
+            ) : (
+              paragraph
+            )}
           </React.Fragment>
         ))}
       </section>

@@ -181,13 +181,13 @@ export const tools: Record<ToolKey, Tool> = {
     icon: '/img/icons/tools/365admin.png',
     category: ['cloud', 'collaboration'],
   },
-  'eslint': {
+  eslint: {
     name: 'ESLint',
     url: 'https://eslint.org/',
     icon: '/img/icons/tools/eslint.png',
     category: ['devtools'],
   },
-  'mobx': {
+  mobx: {
     name: 'MobX',
     url: 'https://mobx.js.org/README.html',
     icon: '/img/icons/tools/mobx.png',
