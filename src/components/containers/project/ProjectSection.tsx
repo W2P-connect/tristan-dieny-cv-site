@@ -13,7 +13,7 @@ export default function ProjectSection({ section, depth = 0 }: Props) {
   const headingClass =
     ['text-2xl', 'text-xl', 'text-lg', 'text-base', 'text-sm'][depth] || 'text-sm'
 
-  const spacing = depth === 0 ? 'space-y-6' : 'space-y-4'
+  const spacing = depth === 0 ? 'space-y-4' : 'space-y-2'
 
   if (section.type === 'text') {
     return (
@@ -23,9 +23,15 @@ export default function ProjectSection({ section, depth = 0 }: Props) {
         )}
 
         {(section.content as string[]).map((paragraph, i) => (
-          <p key={i} className="text-muted-foreground text-base leading-relaxed">
-            {paragraph}
-          </p>
+          <React.Fragment key={i}>
+            {
+              typeof paragraph === 'string'
+                ? <p className="text-muted-foreground text-base leading-relaxed">
+                  {paragraph}
+                </p>
+                : paragraph
+            }
+          </React.Fragment>
         ))}
       </section>
     )
