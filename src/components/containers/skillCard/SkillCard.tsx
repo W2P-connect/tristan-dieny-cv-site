@@ -51,7 +51,9 @@ export const SkillCard = ({
         <div className="mt-4">
           <ul className="pl-2 list-disc list-inside">
             {card.details[locale].map((desc, index) => (
-              <li className='!text-gray-lightest' key={index}>{desc}</li>
+              <li className="!text-gray-lightest" key={index}>
+                {desc}
+              </li>
             ))}
           </ul>
         </div>

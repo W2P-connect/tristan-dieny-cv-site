@@ -9,19 +9,12 @@ import { Locale } from '@/context/LanguageContext'
 import { skills } from '@/lib/i18n/slills'
 
 export default function Skills({ locale }: { locale: Locale }) {
-
-
-
-
   return (
     <>
       <section className="py-12" id="skills">
         <SectionContainer className="!py-0">
           <h2 className="mb-8">{locale === 'fr' ? 'Compétences' : 'Skills'}</h2>
-          <div className='mt-4 mb-8'>
-            {skills[locale]}
-          </div>
-
+          <div className="mt-4 mb-8">{skills[locale]}</div>
         </SectionContainer>
         <div className="relative">
           <div

@@ -1,7 +1,5 @@
 'use client'
 
-import { Projects } from '@/lib/projects'
-import Image from 'next/image'
 import React, { useMemo, useState } from 'react'
 import { ToolCategory, ToolKey, tools } from '@/lib/tools'
 import { clx } from '@/utilts'
@@ -38,7 +36,8 @@ export default function ProjectTools({ projectTools }: Props) {
                 (selectedCategory && tool.category.includes(selectedCategory)) || !selectedCategory
                   ? 'opacity-100'
                   : 'opacity-10 '
-              )}>
+              )}
+            >
               <Tool tool={tool} />
             </div>
           )
