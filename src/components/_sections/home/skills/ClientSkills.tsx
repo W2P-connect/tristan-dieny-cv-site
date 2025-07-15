@@ -12,8 +12,6 @@ export default function ClientSkills({ id }: { id: string }) {
 
   const scrollDelay = 7000
 
-  const iteration = useRef(0)
-
   const animateProgressBar = () => {
     setIsTransitioning(false)
     setProgressWidth((_) => 0)
@@ -26,8 +24,16 @@ export default function ClientSkills({ id }: { id: string }) {
 
   useEffect(() => {
     animateProgressBar()
-
+    const skillContainer = document.querySelector(`#${id}`) as HTMLElement | null
     timouOutId.current = setInterval(() => {
+      const firstSkill = skillContainer?.children[1]
+      if (!firstSkill) return
+
+      const { width } = firstSkill.getBoundingClientRect()
+      const blogWidth = width + 24
+
+      setRight((prev) => (prev > blogWidth * (skillCards.length - 2) ? 0 : prev + blogWidth))
+
       animateProgressBar()
     }, scrollDelay)
 
@@ -38,14 +44,6 @@ export default function ClientSkills({ id }: { id: string }) {
     const blogContainer = document.querySelector(`#${id}`) as HTMLElement | null
     if (!blogContainer) return
     blogContainer.style.right = `${right}px`
-
-    const firstChild = blogContainer.children[iteration.current]
-    //SI déjà cloné une fois, pas besoin de recloner
-    if (firstChild && blogContainer.childNodes.length < skillCards.length * 2) {
-      const clone = firstChild.cloneNode(true) // true = copie profonde
-      blogContainer.appendChild(clone)
-      iteration.current++
-    }
   }, [right, id])
 
   return (
