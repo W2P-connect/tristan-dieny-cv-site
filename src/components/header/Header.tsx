@@ -57,7 +57,7 @@ export function Header() {
             </div>
           ))}
           <Link className="custom-button" target="_blank" href={`/Resume.pdf`}>
-            {locale === 'en' ? 'Resume' : 'CV'}
+            {locale === 'en' ? 'Resume' : 'Mon CV'}
           </Link>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -108,7 +108,7 @@ export function Header() {
                   ))}
                   <div className="mt-6">
                     <Link className="custom-button" target="_blank" href={`/Resume.pdf`}>
-                      {locale === 'en' ? 'Resume' : 'CV'}
+                      {locale === 'en' ? 'Resume' : 'Mon CV'}
                     </Link>
                   </div>
                 </div>
