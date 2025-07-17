@@ -43,8 +43,8 @@ export const projects: Projects[] = [
         url: '',
       },
       {
-        label: 'sbackend app repository (todo)',
-        url: '',
+        label: 'Backend app repository',
+        url: 'https://github.com/W2P-connect/spotlight.git',
       },
     ],
     tools: [
