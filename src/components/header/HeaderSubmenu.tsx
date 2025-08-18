@@ -7,20 +7,22 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { useEffect, useRef, useState } from 'react'
+import RenderIf from '../containers/renderIf/RenderIf'
 
 type Props = {
   subroutes: Submenu[]
   label: string
+  onMobile?: boolean
 }
 
-export default function HeaderSubmenu({ subroutes, label }: Props) {
-  const [isHovered, setIsHovered] = useState(false)
+export default function HeaderSubmenu({ subroutes, label, onMobile = false }: Props) {
+  const [isHovered, setIsHovered] = useState(onMobile ? true : false)
   const timeoutId = useRef<NodeJS.Timeout>(undefined)
 
   const pathname = usePathname()
 
   useEffect(() => {
-    setIsHovered(false)
+    !onMobile && setIsHovered(false)
   }, [pathname])
 
   return (
@@ -34,12 +36,14 @@ export default function HeaderSubmenu({ subroutes, label }: Props) {
               setIsHovered(true)
             }}
             onMouseLeave={() => {
-              timeoutId.current = setTimeout(() => setIsHovered(false), 200)
+              timeoutId.current = setTimeout(() => setIsHovered(!onMobile && false), 200)
             }}
           >
             <PopoverButton className="inline-flex items-center gap-x-1 font-semibold text-black dark:text-white">
               <span>{label}</span>
-              <ChevronDownIcon aria-hidden="true" className="size-5" />
+              {/* <RenderIf condition={!onMobile}> */}
+                <ChevronDownIcon aria-hidden="true" className="size-5" />
+              {/* </RenderIf> */}
             </PopoverButton>
 
             <PopoverPanel
@@ -51,13 +55,17 @@ export default function HeaderSubmenu({ subroutes, label }: Props) {
               onMouseLeave={() => setIsHovered(false)}
               aria-hidden={!isVisible}
               className={clx(
-                'left-1/2 z-10 absolute flex',
-                'mt-5 px-4 w-screen max-w-max transition -translate-x-1/2',
+                'flex',
+                !onMobile && 'absolute -translate-x-1/2 px-4 max-w-max w-screen mt-5 left-1/2 z-10',
+                'transition',
                 isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               )}
             >
-              <div className="flex-auto bg-white dark:bg-black shadow-lg rounded-3xl ring-1 ring-gray-900/5 dark:ring-0 w-screen max-w-md overflow-hidden">
-                <div className="p-4">
+              <div className={clx(
+                "flex-auto ",
+                !onMobile && 'rounded-3xl ring-1 ring-gray-900/5 dark:ring-0 bg-white dark:bg-black shadow-lg  w-screen max-w-md overflow-hidden'
+              )}>
+                <div className={onMobile ? "p-0" : "p-4"}>
                   {subroutes.map((item) => (
                     <Link
                       href={item.path}
