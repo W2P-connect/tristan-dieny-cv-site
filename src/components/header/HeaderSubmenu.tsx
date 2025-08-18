@@ -5,9 +5,7 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-
 import { useEffect, useRef, useState } from 'react'
-import RenderIf from '../containers/renderIf/RenderIf'
 
 type Props = {
   subroutes: Submenu[]
