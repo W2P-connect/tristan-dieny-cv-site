@@ -2,7 +2,7 @@
 
 import FrenchFlag from 'public/img/icons/flag/FrenchFlag'
 import UKFlag from 'public/img/icons/flag/UKFlag'
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import { clx } from '@/utilts'
 import { useLanguage } from '@/context/LanguageContext'
 
@@ -12,9 +12,7 @@ export default function LanguageToggle() {
 
   const changeLanguage = (lang: 'fr' | 'en') => {
     //prv => !prv ne marche pas au premier click (j'ignore pourquoi).
-    isHovered 
-      ? setIsHovered(false)
-      : setIsHovered(true)
+    isHovered ? setIsHovered(false) : setIsHovered(true)
     setNewLocale(lang)
   }
   const isFrench = locale === 'fr'

@@ -41,7 +41,9 @@ export default function ProjectHeader({ project, locale }: Props) {
                 />
               </div>
               <RenderIf condition={!!ressource.subLabel}>
-                <div className='text-gray-dark dark:text-gray-light text-base text-center'>{ressource.subLabel}</div>
+                <div className="text-gray-dark dark:text-gray-light text-base text-center">
+                  {ressource.subLabel}
+                </div>
               </RenderIf>
             </div>
           ))}

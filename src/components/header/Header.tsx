@@ -15,12 +15,11 @@ import { usePathname } from 'next/navigation'
 export function Header() {
   const { locale } = useLanguage()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const pathname = usePathname() 
+  const pathname = usePathname()
 
   useEffect(() => {
-    setMobileMenuOpen(false)  
+    setMobileMenuOpen(false)
   }, [pathname])
-
 
   if (!locale || !ROUTES[locale]) return null
 
@@ -89,7 +88,11 @@ export function Header() {
                 className="-m-2.5 p-2.5 rounded-md text-gray-darkest dark:text-gray-lightest-2"
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon onClick={() => setMobileMenuOpen(false)} aria-hidden="true" className="size-6" />
+                <XMarkIcon
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-hidden="true"
+                  className="size-6"
+                />
               </button>
             </div>
             <div className="flow-root mt-6">
@@ -98,7 +101,11 @@ export function Header() {
                   {Object.values(ROUTES[locale]).map((item) => (
                     <div key={item.label}>
                       {item.submenu ? (
-                        <HeaderSubmenu label={item.label} subroutes={item.submenu[locale]} onMobile={true} />
+                        <HeaderSubmenu
+                          label={item.label}
+                          subroutes={item.submenu[locale]}
+                          onMobile={true}
+                        />
                       ) : (
                         <a
                           href={item.path}

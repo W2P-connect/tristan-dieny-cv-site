@@ -21,7 +21,7 @@ export default function HeaderSubmenu({ subroutes, label, onMobile = false }: Pr
 
   useEffect(() => {
     !onMobile && setIsHovered(false)
-  }, [pathname])
+  }, [pathname, onMobile])
 
   return (
     <Popover className="relative">
@@ -40,7 +40,7 @@ export default function HeaderSubmenu({ subroutes, label, onMobile = false }: Pr
             <PopoverButton className="inline-flex items-center gap-x-1 font-semibold text-black dark:text-white">
               <span>{label}</span>
               {/* <RenderIf condition={!onMobile}> */}
-                <ChevronDownIcon aria-hidden="true" className="size-5" />
+              <ChevronDownIcon aria-hidden="true" className="size-5" />
               {/* </RenderIf> */}
             </PopoverButton>
 
@@ -59,11 +59,14 @@ export default function HeaderSubmenu({ subroutes, label, onMobile = false }: Pr
                 isVisible ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
               )}
             >
-              <div className={clx(
-                "flex-auto ",
-                !onMobile && 'rounded-3xl ring-1 ring-gray-900/5 dark:ring-0 bg-white dark:bg-black shadow-lg  w-screen max-w-md overflow-hidden'
-              )}>
-                <div className={onMobile ? "p-0" : "p-4"}>
+              <div
+                className={clx(
+                  'flex-auto ',
+                  !onMobile &&
+                    'rounded-3xl ring-1 ring-gray-900/5 dark:ring-0 bg-white dark:bg-black shadow-lg  w-screen max-w-md overflow-hidden'
+                )}
+              >
+                <div className={onMobile ? 'p-0' : 'p-4'}>
                   {subroutes.map((item) => (
                     <Link
                       href={item.path}
