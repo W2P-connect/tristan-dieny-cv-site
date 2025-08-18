@@ -98,6 +98,10 @@ export const projects: Projects[] = [
         label: 'Wordpress SVN repository',
         url: 'https://plugins.svn.wordpress.org/w2p-pipedrive-crm-integration-for-woocommerce/',
       },
+      {
+        label: 'Front Plugin (react)',
+        url: 'https://github.com/W2P-connect/W2P_client_react/',
+      },
     ],
     company: 'W2P',
     tools: [
