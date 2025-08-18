@@ -11,7 +11,7 @@ export type Projects = {
   tools: ToolKey[]
   description: { fr: string; en: string } // compétences développées
   summary: { fr: string; en: string } // description du projet
-  ressources: { label: string; url: string }[]
+  ressources: { label: string; url: string; subLabel?: string }[]
 }
 
 export const projects: Projects[] = [
@@ -31,20 +31,24 @@ export const projects: Projects[] = [
     logo: '/img/projects/SPOTLIGHT/logo.jpg',
     ressources: [
       {
-        label: 'IOS app (with TestFlight)',
+        label: 'IOS app',
         url: 'https://testflight.apple.com/join/FhqyxRwG',
+        subLabel: 'With TestFlight',
       },
       {
-        label: 'Android app (download apk)',
+        label: 'Android app',
         url: 'https://expo.dev/artifacts/eas/brEygjTTFQXzJG86ETW77z.apk',
+        subLabel: 'APK file',
       },
       {
         label: 'Client app repository',
         url: 'https://github.com/W2P-connect/spotlight-app',
+        subLabel: 'Github',
       },
       {
         label: 'Backend app repository',
         url: 'https://github.com/W2P-connect/spotlight.git',
+        subLabel: 'Github',
       },
     ],
     tools: [
@@ -89,18 +93,22 @@ export const projects: Projects[] = [
       {
         label: 'Website',
         url: 'https://woocommerce-to-pipedrive.com/',
+        subLabel: 'Official site',
       },
       {
         label: 'Plugin page',
         url: 'https://wordpress.org/plugins/w2p-pipedrive-crm-integration-for-woocommerce/',
+        subLabel: 'WordPress.org',
       },
       {
-        label: 'Wordpress SVN repository',
+        label: 'Plugin code',
         url: 'https://plugins.svn.wordpress.org/w2p-pipedrive-crm-integration-for-woocommerce/',
+        subLabel: 'SVN repository',
       },
       {
-        label: 'Front Plugin (react)',
+        label: 'Front Plugin (React)',
         url: 'https://github.com/W2P-connect/W2P_client_react/',
+        subLabel: 'GitHub',
       },
     ],
     company: 'W2P',
@@ -146,14 +154,17 @@ export const projects: Projects[] = [
       {
         label: 'LLFC – Compléments & expertise globale',
         url: 'https://llfc.fr/',
+        subLabel: 'Website',
       },
       {
         label: 'LLFC – Spécialisation CBD',
         url: 'https://labofrancaisduchanvre.com/',
+        subLabel: 'Website',
       },
       {
         label: 'Portail d’analyse – LLFC',
         url: 'https://analyse-llfc.fr/',
+        subLabel: 'Website',
       },
     ],
     tools: [
