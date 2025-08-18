@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Dialog, DialogPanel } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { ThemeToggle } from '@/components/themeToggle/ThemeToggle'
@@ -10,10 +10,17 @@ import { ROUTES } from '@/lib/routes'
 import { useLanguage } from '@/context/LanguageContext'
 import HeaderSubmenu from './HeaderSubmenu'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export function Header() {
   const { locale } = useLanguage()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname() 
+
+  useEffect(() => {
+    setMobileMenuOpen(false)  
+  }, [pathname])
+
 
   if (!locale || !ROUTES[locale]) return null
 
@@ -79,11 +86,10 @@ export function Header() {
               <LanguageToggle />
               <button
                 type="button"
-                onClick={() => setMobileMenuOpen(false)}
                 className="-m-2.5 p-2.5 rounded-md text-gray-darkest dark:text-gray-lightest-2"
               >
                 <span className="sr-only">Close menu</span>
-                <XMarkIcon aria-hidden="true" className="size-6" />
+                <XMarkIcon onClick={() => setMobileMenuOpen(false)} aria-hidden="true" className="size-6" />
               </button>
             </div>
             <div className="flow-root mt-6">
@@ -92,7 +98,7 @@ export function Header() {
                   {Object.values(ROUTES[locale]).map((item) => (
                     <div key={item.label}>
                       {item.submenu ? (
-                        <HeaderSubmenu label={item.label} subroutes={item.submenu[locale]} />
+                        <HeaderSubmenu label={item.label} subroutes={item.submenu[locale]} onMobile={true} />
                       ) : (
                         <a
                           href={item.path}
