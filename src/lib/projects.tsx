@@ -31,16 +31,16 @@ export const projects: Projects[] = [
     logo: '/img/projects/SPOTLIGHT/logo.jpg',
     ressources: [
       {
-        label: 'IOS app (todo)',
-        url: '',
+        label: 'IOS app (with TestFlight)',
+        url: 'https://testflight.apple.com/join/FhqyxRwG',
       },
       {
-        label: 'Android app (todo)',
-        url: '',
+        label: 'Android app (download apk)',
+        url: 'https://expo.dev/artifacts/eas/brEygjTTFQXzJG86ETW77z.apk',
       },
       {
-        label: 'client app repository (todo)',
-        url: '',
+        label: 'Client app repository',
+        url: 'https://github.com/W2P-connect/spotlight-app',
       },
       {
         label: 'Backend app repository',
