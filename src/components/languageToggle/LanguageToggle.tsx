@@ -13,7 +13,7 @@ export default function LanguageToggle() {
   const isFrench = locale === 'fr'
 
   return (
-    <div onMouseLeave={() => setIsHovered(false)} className="relative">
+    <div onClick={() => setIsHovered(prv => !prv)} onMouseLeave={() => setIsHovered(false)} className="relative">
       <div
         onMouseEnter={() => setIsHovered(true)}
         className="relative rounded-xl w-[40px] h-[40px] overflow-hidden cursor-pointer"
