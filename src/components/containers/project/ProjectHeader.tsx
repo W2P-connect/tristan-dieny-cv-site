@@ -29,8 +29,8 @@ export default function ProjectHeader({ project, locale }: Props) {
       <RenderIf condition={!!project.ressources}>
         <div className="flex flex-wrap justify-center gap-4 bg-primary-lighter dark:bg-primary-darkest mt-12 mb-8 py-8">
           {project.ressources.map((ressource, index) => (
-            <div>
-              <div key={index} className="flex items-center gap-1.5 px-4 py-1">
+            <div key={index}>
+              <div className="flex items-center gap-1.5 px-4 py-1">
                 <Link href={ressource.url} className="underline big-text" target="_blank">
                   {ressource.label}
                 </Link>
