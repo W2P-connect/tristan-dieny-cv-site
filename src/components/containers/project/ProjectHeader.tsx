@@ -29,15 +29,20 @@ export default function ProjectHeader({ project, locale }: Props) {
       <RenderIf condition={!!project.ressources}>
         <div className="flex flex-wrap justify-center gap-4 bg-primary-lighter dark:bg-primary-darkest mt-12 mb-8 py-8">
           {project.ressources.map((ressource, index) => (
-            <div key={index} className="flex items-center gap-1.5 px-4 py-1">
-              <Link href={ressource.url} className="underline big-text" target="_blank">
-                {ressource.label}
-              </Link>
-              <ArrowTopRightOnSquareIcon
-                width={16}
-                height={16}
-                className="text-black dark:text-white"
-              />
+            <div>
+              <div key={index} className="flex items-center gap-1.5 px-4 py-1">
+                <Link href={ressource.url} className="underline big-text" target="_blank">
+                  {ressource.label}
+                </Link>
+                <ArrowTopRightOnSquareIcon
+                  width={16}
+                  height={16}
+                  className="text-black dark:text-white"
+                />
+              </div>
+              <RenderIf condition={!!ressource.subLabel}>
+                <div className='text-gray-dark dark:text-gray-light text-base text-center'>{ressource.subLabel}</div>
+              </RenderIf>
             </div>
           ))}
         </div>
