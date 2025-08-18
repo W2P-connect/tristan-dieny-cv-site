@@ -130,7 +130,7 @@ export const tools: Record<ToolKey, Tool> = {
   eas: {
     name: 'EAS',
     url: 'https://docs.expo.dev/eas/',
-    icon: '/img/icons/tools/eas.png',
+    icon: '/img/icons/tools/eas.jpeg',
     category: ['mobile', 'infrastructure'],
   },
   expo: {
