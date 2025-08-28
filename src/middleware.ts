@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
   const headers = new Headers(request.headers)
   headers.set('x-theme', theme?.value ?? 'dark')
   headers.set('x-locale', locale?.value ?? defaultLocale)
-  headers.set("x-current-path", request.nextUrl.pathname);
+  headers.set('x-current-path', request.nextUrl.pathname)
 
   if (request.nextUrl.pathname === '/') {
     return NextResponse.redirect(new URL(`/${locale?.value ?? defaultLocale}`, request.url))

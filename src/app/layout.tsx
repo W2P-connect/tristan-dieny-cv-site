@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from 'next'
+import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { Header } from '@/components/header/Header'
@@ -8,7 +8,6 @@ import Modal from '@/components/containers/modal/Modal'
 import { AppProviders } from '@/context/AppProviders'
 import { Locale } from '@/context/LanguageContext'
 import { PathKeys, ROUTES } from '@/lib/routes'
-import { format } from 'path'
 import { projects } from '@/lib/projects'
 
 const geistSans = Geist({
@@ -20,7 +19,6 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
-
 
 export async function generateMetadata(): Promise<Metadata> {
   const headersList = await headers()
@@ -53,7 +51,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description: routes.home.description,
   }
 }
-
 
 export default async function RootLayout({
   children,
